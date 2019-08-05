@@ -1,0 +1,14 @@
+version: '2.2'
+services:
+  springboot-um:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: springboot-um-web
+    ports:
+      - "8080:8080"
+    networks:
+      - um-network
+ 
+networks:
+  um-network:

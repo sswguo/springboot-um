@@ -10,10 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class UserRetrieveController
+@RequestMapping("/user")
+public class UserController
 {
 
-    @RequestMapping(method = RequestMethod.GET, value="/user/allusers")
+    @RequestMapping(method = RequestMethod.GET, value="/allusers")
     public List<User> getAllUsers()
     {
         //TODO
