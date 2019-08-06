@@ -1,13 +1,9 @@
 #!/bin/bash
 
-cd users
+docker-compose down
 
-./mvnw clean install -DskipTests
+cd users && ./mvnw clean install -DskipTests
 
-cd ../notification
+cd ../notification && ./mvnw clean install -DskipTests
 
-./mvnw clean install -DskipTests
-
-cd ..
-
-docker-compose up --build
+cd .. && docker-compose up --build

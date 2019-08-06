@@ -3,9 +3,11 @@ package com.lizard.demo.springbootum.controllers;
 import com.lizard.demo.springbootum.model.User;
 import com.lizard.demo.springbootum.operation.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +49,16 @@ public class UserController
 
         return "successfully.";
 
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value="/bulkregister", consumes = MediaType.APPLICATION_JSON_VALUE )
+    @ResponseBody
+    public String registerUsers( @RequestBody List<User> users )
+    {
+        users.forEach( user -> {
+            service.addUser( user );
+        } );
+        return "successfully";
     }
 
 }
