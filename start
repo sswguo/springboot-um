@@ -2,8 +2,6 @@
 
 docker-compose down
 
-cd users && ./mvnw clean install -DskipTests
+mvn clean install
 
-cd ../notification && ./mvnw clean install -DskipTests
-
-cd .. && docker-compose up --build
+docker-compose up --build
