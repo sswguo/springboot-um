@@ -21,6 +21,7 @@ public class UserController
         List<User> users = new ArrayList<>(  );
         User u1 = new User();
         u1.setName( "Jack" );
+        u1.setEmail( "jack@gmail.com" );
         users.add( u1 );
 
         return users;

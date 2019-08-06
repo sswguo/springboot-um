@@ -9,6 +9,16 @@ services:
       - "8080:8080"
     networks:
       - um-network
+
+  notification:
+    build:
+      context: notification/
+      dockerfile: Dockerfile
+    image: sprintboot-um-notification
+    ports:
+      - "8087:8080"
+    networks:
+      - um-network
  
 networks:
   um-network:
