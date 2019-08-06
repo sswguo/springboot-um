@@ -13,16 +13,15 @@ You need to have the following tools installed.
 
 ### Howto Run
 
+Clone the project 
+```
+git clone https://github.com/sswguo/springboot-um.git
+```
+
 Build projects
 
 ```
-cd users
-./mvnw clean install
-```
-
-```
-cd notification
-./mvnw clean install
+mvn clean install
 ```
 
 Run docker-compose to build images and start containers
