@@ -1,10 +1,11 @@
 ## Springboot Demo
 
 ### Services
-- users
-- notification
+- user service
+- notification service
 
 ### Howto Run
+
 
 ```
 docker-compose up --build
