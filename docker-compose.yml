@@ -2,7 +2,7 @@ version: '2.2'
 services:
   springboot-um:
     build:
-      context: ./
+      context: users/
       dockerfile: Dockerfile
     image: springboot-um-web
     ports:
