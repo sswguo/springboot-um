@@ -1,10 +1,8 @@
 ## Springboot Demo
 
-### User Service
-
-
-### Notification Service
-
+### Services
+- users
+- notification
 
 ### Howto Run
 
