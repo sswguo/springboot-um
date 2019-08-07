@@ -47,7 +47,12 @@ cd springboot-um
 curl -d "@data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/bulkregister
 ```
 
-Then check the emails in the fake mail server
+Check the users:
+```
+http://localhost:8080/user/all
+```
+
+And check the emails in the fake mail server
 ```
 http://localhost:5080/
 ```
