@@ -8,8 +8,8 @@ You need to have the following tools installed.
 - docker-compose
 
 ### Services
-- user service
-- notification service
+- User service
+- Notification service
 - Fake SMTP Server
 
 ### Howto Run
