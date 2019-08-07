@@ -41,10 +41,15 @@ springboot-um_springboot-um_1      java -jar springboot-um-0. ...   Up      0.0.
 springboot-um_fake_mail_server_1   sh -c java $JAVA_OPTS -Dja ...   Up      0.0.0.0:5025->5025/tcp, 0.0.0.0:5080->5080/tcp, 0.0.0.0:5081->5081/tcp
 ```
 
+### RestAPI
+```
+http://localhost:8080/swagger-ui.html
+```
+
 ### Rest Test
 ```
 cd springboot-um
-curl -d "@data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/bulkregister
+curl -d "@data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/register
 ```
 
 Check the users:
@@ -56,3 +61,4 @@ And check the emails in the fake mail server
 ```
 http://localhost:5080/
 ```
+

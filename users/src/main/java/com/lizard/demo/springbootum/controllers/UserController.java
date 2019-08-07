@@ -2,6 +2,8 @@ package com.lizard.demo.springbootum.controllers;
 
 import com.lizard.demo.springbootum.model.User;
 import com.lizard.demo.springbootum.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,15 +23,19 @@ public class UserController
     @Autowired
     UserService service;
 
+    @ApiOperation(value = "View a list of active users", response = List.class)
     @RequestMapping(method = RequestMethod.GET, value="/all")
     public List<User> getAllUsers()
     {
         return service.getAllUsers();
     }
 
+    @ApiOperation(value = "Bulk register users")
     @RequestMapping(method = RequestMethod.POST, value="/register", consumes = MediaType.APPLICATION_JSON_VALUE )
     @ResponseBody
-    public String registerUsers( @RequestBody List<User> users )
+    public String registerUsers(
+                    @ApiParam(value = "User list", required = true)
+                    @RequestBody List<User> users )
     {
         users.forEach( user -> {
             user.setActive( true );
