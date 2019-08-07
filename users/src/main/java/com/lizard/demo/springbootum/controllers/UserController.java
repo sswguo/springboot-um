@@ -34,18 +34,11 @@ public class UserController
     @RequestMapping(method = RequestMethod.POST, value="/register")
     @ResponseBody
     public String registerUser(@RequestParam(name = "username") String username, @RequestParam(name = "email") String email ) {
+
         User u1 = new User();
         u1.setName( username );
         u1.setEmail( email );
         service.addUser(u1);
-
-        RestTemplate restTemplate = new RestTemplate(  );
-
-        MultiValueMap<String, String> mvm = new LinkedMultiValueMap<String, String>();
-        mvm.add("username", u1.getName());
-
-        ResponseEntity<String>
-                        result = restTemplate.postForEntity( "http://notification:8080/notification/mock", mvm, String.class);
 
         return "successfully.";
 
@@ -58,7 +51,7 @@ public class UserController
         users.forEach( user -> {
             service.addUser( user );
         } );
-        return "successfully";
+        return "Submit successfully.";
     }
 
 }

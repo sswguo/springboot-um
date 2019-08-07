@@ -16,6 +16,7 @@ public class NotificationController
     @ResponseBody
     public String mockNotify( @RequestParam(name = "username") String username )
     {
+        System.out.println( Thread.currentThread().getName() + " - Notification user:" + username );
         return "User: " + username;
     }
 
