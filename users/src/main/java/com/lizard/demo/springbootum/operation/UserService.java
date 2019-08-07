@@ -35,9 +35,10 @@ public class UserService
 
         MultiValueMap<String, String> mvm = new LinkedMultiValueMap<String, String>();
         mvm.add("username", user.getName());
+        mvm.add("email", user.getEmail());
 
         ResponseEntity<String>
-                        result = restTemplate.postForEntity( "http://notification:8080/notification/mock", mvm, String.class);
+                        result = restTemplate.postForEntity( "http://notification:8080/notification/mail", mvm, String.class);
 
         return CompletableFuture.completedFuture( result );
     }

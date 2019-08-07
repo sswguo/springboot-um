@@ -44,3 +44,7 @@ springboot-um_springboot-um_1   java -jar springboot-um-0. ...   Up      0.0.0.0
 curl -d "@/tmp/workdir/springboot-um/data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/bulkregister
 ```
 
+Then check the emails in the fake mail server
+```
+http://localhost:5080/
+```

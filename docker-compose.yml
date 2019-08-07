@@ -19,6 +19,18 @@ services:
       - "8087:8080"
     networks:
       - um-network
+
+  fake_mail_server:
+    image: gessnerfl/fake-smtp-server:latest
+    ports:
+      - "5080:5080"
+      - "5025:5025"
+      - "5081:5081"
+    environment:
+      - fakesmtp.authentication.username=umbot@boot.com
+      - fakesmtp.authentication.password=umbot!@# 
+    networks:
+      - um-network
  
 networks:
   um-network:
