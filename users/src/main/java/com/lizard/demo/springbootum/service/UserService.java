@@ -29,8 +29,16 @@ public class UserService
     }
 
     @Async
-    public CompletableFuture<ResponseEntity> addUser( User user)
+    public CompletableFuture<ResponseEntity> addUser( User user) throws Exception
     {
+
+        List<User> users =  repo.findUserByEmail( user.getEmail() );
+
+        if (users.size() > 0)
+        {
+            throw new Exception( "The email had been registered." );
+        }
+
         repo.save(user);
 
         MultiValueMap<String, String> mvm = new LinkedMultiValueMap<String, String>();

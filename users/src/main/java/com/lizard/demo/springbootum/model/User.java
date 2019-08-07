@@ -1,5 +1,6 @@
 package com.lizard.demo.springbootum.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class User
     private String email;
     private Boolean active;
 
+    @Column(nullable = false)
     public String getName()
     {
         return name;
@@ -26,6 +28,7 @@ public class User
         this.name = name;
     }
 
+    @Column(nullable = false)
     public String getEmail()
     {
         return email;

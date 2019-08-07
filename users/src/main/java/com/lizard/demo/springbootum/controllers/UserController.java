@@ -1,5 +1,6 @@
 package com.lizard.demo.springbootum.controllers;
 
+import com.lizard.demo.springbootum.exception.UserExistsException;
 import com.lizard.demo.springbootum.model.User;
 import com.lizard.demo.springbootum.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -9,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,7 +39,14 @@ public class UserController
     {
         users.forEach( user -> {
             user.setActive( true );
-            service.addUser( user );
+            try
+            {
+                service.addUser( user );
+            }
+            catch ( Exception e )
+            {
+                throw new UserExistsException( user.getEmail() + " exists." );
+            }
         } );
         return "Submit successfully.";
     }
