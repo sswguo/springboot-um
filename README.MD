@@ -43,7 +43,8 @@ springboot-um_fake_mail_server_1   sh -c java $JAVA_OPTS -Dja ...   Up      0.0.
 
 ### Rest Test
 ```
-curl -d "@/tmp/workdir/springboot-um/data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/bulkregister
+cd springboot-um
+curl -d "@data/users_req.json" -H "Content-Type: application/json" -X POST http://localhost:8080/user/bulkregister
 ```
 
 Then check the emails in the fake mail server

@@ -1,4 +1,4 @@
-package com.lizard.demo.springbootum.operation;
+package com.lizard.demo.springbootum.service;
 
 import com.lizard.demo.springbootum.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +43,24 @@ public class UserService
         return CompletableFuture.completedFuture( result );
     }
 
+    public CompletableFuture<ResponseEntity> updateUser( User user )
+    {
+        List<User> users = repo.findUserByEmail( user.getEmail() );
+        if ( users.size() > 0 )
+        {
+            User temp = users.get( 0 );
+            temp.setName( user.getName() );
+            temp.setActive( user.getActive() );
+            repo.save( temp );
+        }
+
+        return null;
+    }
+
     public List<User> getAllUsers()
     {
         List<User> users = new ArrayList<>(  );
-        repo.findAll().forEach( user -> {
+        repo.getAllActiveUser().forEach( user -> {
             users.add( user );
         } );
         return users;

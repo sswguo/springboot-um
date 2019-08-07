@@ -14,6 +14,7 @@ public class User
     private Long id;
     private String name;
     private String email;
+    private Boolean active;
 
     public String getName()
     {
@@ -45,9 +46,20 @@ public class User
         this.id = id;
     }
 
+    public Boolean getActive()
+    {
+        return active;
+    }
+
+    public void setActive( Boolean active )
+    {
+        this.active = active;
+    }
+
     @Override
     public String toString()
     {
-        return "User{" + "name='" + name + '\'' + ", email='" + email + '\'' + '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", active=" + active
+                        + '}';
     }
 }
